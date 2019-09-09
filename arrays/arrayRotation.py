@@ -51,6 +51,7 @@ def rotate_by_d(arr, d, n):
         rotate_by_one(arr, n)
     print(arr)
 
+
 def shift_elements_right(arr, n):
     temp = arr[-1]
 
@@ -60,10 +61,36 @@ def shift_elements_right(arr, n):
     print(arr)
 
 
-    print(arr)
+def gcd(n, k):
+    if k == 0:
+        return n
+    else:
+        return gcd(k, n % k)
+
+
+def juggling_algorithm(A, n, k):
+    num_sets = gcd(n, k)
+    for i in range(num_sets):
+        j = i
+        temp = A[i]
+        while 1:
+            d = (j + k) % n
+            if d == i:
+                break
+            A[j] = A[d]
+            j = d
+        A[j] = temp
+
+    print(A)
+
+
+
+
+
 if __name__=="__main__":
     arr = [1, 2, 3, 4, 5, 6, 7]
     #array_rotation(arr, 3, 7)
     #rotate_by_d(arr, 3, 7)
-    shift_elements_right(arr,  7)
+    # shift_elements_right(arr,  7)
+    juggling_algorithm(arr, 7, 2)
 
