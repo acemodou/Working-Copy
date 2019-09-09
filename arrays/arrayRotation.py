@@ -27,7 +27,7 @@ def rotate_by_one(arr, n):
     put temp at the last index
     :param arr: [1,2,3,4,5,6,7]
     :param n:  7
-    :return: shifted array
+    :return: shifted array complexity O(n * d) auxiliary space : O(1)
     """
 
     temp = arr[0]
@@ -69,6 +69,7 @@ def gcd(n, k):
 
 
 def juggling_algorithm(A, n, k):
+    # O(n) space O(1)
     num_sets = gcd(n, k)
     for i in range(num_sets):
         j = i
