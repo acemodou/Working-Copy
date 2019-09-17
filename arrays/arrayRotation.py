@@ -53,12 +53,23 @@ def rotate_by_d(arr, d, n):
 
 
 def shift_elements_right(arr, n):
-    temp = arr[-1]
+    """
+    Store last element in a variable say temp
+    shift all elements one position ahead
+    Replace first element of array with x
+    :param arr: [1,2,3,4,5]
+    :param n:
+    :return: [5,1,2,3,4]
+    """
 
-    for i in arr[0:6]:
-        arr[i] = i
+    temp = arr[-1]
+    for i in range(n-1, 0, -1):# start end: stop at index 0, step by -1, -2 etc
+        arr[i] = arr[i-1]
     arr[0] = temp
+
     print(arr)
+
+
 
 
 def gcd(n, k):
@@ -89,9 +100,9 @@ def juggling_algorithm(A, n, k):
 
 
 if __name__=="__main__":
-    arr = [1, 2, 3, 4, 5, 6, 7]
+    arr = [1, 2, 3, 4, 5]
     #array_rotation(arr, 3, 7)
     #rotate_by_d(arr, 3, 7)
-    # shift_elements_right(arr,  7)
-    juggling_algorithm(arr, 7, 2)
+    shift_elements_right(arr,  5)
+    #juggling_algorithm(arr, 7, 2)
 
