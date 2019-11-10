@@ -41,14 +41,14 @@ emp_3 = 'Salem-Jaw-690000'
 
 #print(Employee.fullname(emp_1))
 new_emp = Employee.from_string(emp_3)
-print(new_emp.fullname())
-print(new_emp.email)
-print(Employee.num_of_emps)
+# print(new_emp.fullname())
+# print(new_emp.email)
+# print(Employee.num_of_emps)
 
 import datetime
 check_is_work = datetime.date(2019, 11, 19)
 
-print(Employee.is_workday(check_is_work))
+#print(Employee.is_workday(check_is_work))
 
 
 

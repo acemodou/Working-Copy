@@ -4,7 +4,7 @@
 def array_rotation(arr, d, n):
     """
     Store ele1 and ele2 in a temp variable
-    loop through the array starting index 3
+    loop through the array starting index 2
     append ele1 and ele2 at the end of the array
     :param arr:
     :param d: 2
@@ -68,8 +68,6 @@ def shift_elements_right(arr, n):
     arr[0] = temp
 
     print(arr)
-
-
 
 
 def gcd(n, k):
