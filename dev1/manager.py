@@ -21,6 +21,7 @@ class Manager(Employee):
         for emp in self.employees:
             print('-->', emp.fullname())
 
+
 dev_1 = Developer('Aji AMie', 'Jaw', 50000, 'python')
 dev_2 = Developer('Aisha', 'Jaw', 25000, 'C++')
 mgr_1 = Manager('Adam', 'Silveria', 165000, [dev_1])
@@ -32,3 +33,6 @@ mgr_1.add_emp(dev_1)
 
 mgr_1.print_emps()
 
+print(isinstance(mgr_1, Developer))
+print(issubclass(Manager, Employee))
+print(issubclass(Manager, Developer))
