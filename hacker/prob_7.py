@@ -30,6 +30,7 @@ def reverse_array(a):
     # print(a)
     b = a.reverse()
     print(b)
+
 if __name__=="__main__":
     print("Enter how many string you want to input ")
     arr = [1,2,3,4]
