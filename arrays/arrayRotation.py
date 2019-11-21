@@ -106,13 +106,15 @@ def sum_array(arr, n):
 def max_sum_value(arr, n):
 
     max_val = 0
-    max_sum = 0
+
     for i in range(len(arr)):
         max_sum = sum_array(arr, n)
-        print(max_sum)
-        rotate_by_d(arr, i+1, n)
         if max_sum > max_val:
-            max_sum = max_val
+            max_val = max_sum
+            print("Array is {}, rotation is {}".format(arr, i))
+        rotate_by_one(arr, n)
+
+    print("max_sum is {}".format(max_val))
     return max_val
 
 
@@ -127,5 +129,5 @@ if __name__=="__main__":
     #rotate_by_d(arr, 3, 7)
     #shift_elements_right(arr,  5)
     #juggling_algorithm(arr, 7, 2)
-    print(max_sum_value(arr, len(arr)))
+    max_sum_value(arr, len(arr))
 
