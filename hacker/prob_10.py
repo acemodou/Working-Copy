@@ -19,7 +19,7 @@ def binaryToDecimal(binary):
     while binary != 0:
         dec = binary % 10
         decimal += dec * pow(2, i)
-        i +=1
+        i += 1
         binary //=10
     print(decimal)
 
@@ -37,7 +37,7 @@ def consecutive_ones(decimal):
     print(max_counter)
 
 
-consecutive_ones(13)
+consecutive_ones(6)
 
 
 
