@@ -4,19 +4,23 @@ import sys
 def _getvalues(path):
 
     with open(path, 'r') as f:
-        lines = [line.strip().split() for line in f]
-        isinstance(lines, list)
-        arr_glass = int(lines)
-        arr_glass = arr_glass
-        print(arr_glass)
-        # hour_glass = [int(i) for i in arr_glass.strip()]
-        # print(hour_glass)
+        lines = f.read()
+        hour_glass = lines.split("\n")
+        output_list = []
+        for rec in hour_glass:
+            numbers_as_strings = rec.split()
+            print(numbers_as_strings)  ## while testing
+            inner_list = []
+            for num in numbers_as_strings:
+                inner_list.append(int(num))
+            output_list.append(inner_list)
+    #
+    print("\noutput_list =", output_list)
 
 
 def _hourglass(arr):
     print("arr is : ", arr)
-    max_value = -sys.maxsize
-    curr_max =  0
+    max_value, curr_max = -sys.maxsize, 0
     print("Max Value = ", max_value)
     for i in range(len(arr) - 2):
         for j in range(len(arr) - 2):
@@ -38,4 +42,5 @@ if __name__ =="__main__":
                   [0, 0, 0, 2, 0, 0],
                   [0, 0, 1, 2, 4, 0]]
 
-    _hourglass(hour_glass)
+    # _hourglass(hour_glass)
+    _getvalues('hourglass.txt')
