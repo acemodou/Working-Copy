@@ -1,6 +1,6 @@
-import sys
 
-def get_hour_glass_text_Int(file_path):
+
+def get_hour_glass_text_int(file_path):
     """
     open a file, read as list and split to remove new line
     loop through the list, and assign it to a new list whilst splitting
@@ -22,10 +22,18 @@ def get_hour_glass_text_Int(file_path):
             output_list.append(inner_list)
     return output_list
 
-def _hourglass(arr):
-    max_value = -sys.maxsize
 
-    print(len(arr))
+def _hourglass(arr):
+    """
+    constraint is -9 <A[i][j] 9
+    so therefore the minimum element we can have is -9
+    The maximum element we can have is 9 according to the contraint.
+    hour glass has 7 elements. (-9 * 7) = -63.
+    The minimum sum we can ever get is -63
+
+    """
+
+    max_value = -63
 
     for row in range(len(arr)-2):
         for col in range(len(arr) -2):
@@ -37,7 +45,9 @@ def _hourglass(arr):
     print("The maximum hour glass is : ({}) ".format(max_value))
     return max_value
 
-if __name__ =="__main__":
-    text_file = get_hour_glass_text_Int('hourglass.txt')
+
+if __name__ == "__main__":
+
+    text_file = get_hour_glass_text_int('hourglass.txt')
     _hourglass(text_file)
 
