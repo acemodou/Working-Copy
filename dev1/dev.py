@@ -1,7 +1,6 @@
 from emp import Employee
 
 
-
 class Developer(Employee):
     """It inherited everything from Employee class"""
     raise_amount = 1.1
@@ -9,8 +8,6 @@ class Developer(Employee):
     def __init__(self, first, last, pay, prog_lang):
         super().__init__(first, last, pay)
         self.p_lang = prog_lang
-
-
 
 
 dev_1 = Developer('Aji AMie', 'Jaw', 50000, 'python')
@@ -33,5 +30,5 @@ emp_5 = Employee('Aji AMie', 'Jaw', 50000)
 #
 
 import datetime
-check_is_work = datetime.date(2019, 11, 19)
-#print(Developer.is_workday(check_is_work)) 
+check_is_work = datetime.date(2021, 8, 6)
+print(Developer.is_workday(check_is_work))

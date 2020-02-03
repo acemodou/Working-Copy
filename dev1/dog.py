@@ -17,7 +17,7 @@ class Dog:
 
     #return the larger of Dog1 and Dog2
     @classmethod
-    def  max_dog(cls, d1, d2):
+    def max_dog(cls, d1, d2):
         if d1.size > d2.size:
             return cls(d1)
         else:

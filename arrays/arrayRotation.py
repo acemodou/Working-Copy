@@ -117,9 +117,44 @@ def max_sum_value(arr, n):
     print("max_sum is {}".format(max_val))
     return max_val
 
+def rotate_get_maximum(arr, n):
+    # This module takes and array and multiply each value with their index
+    # store the max value as final result
+
+    #TODO: multiply arr[i] * i
+    #TODO: rotatebyone and multiply arr[i] * i
+    #TODO: keep the maximum value as final result
 
 
+def find_rotation_count(arr, n):
+    # This module will return the index of the minimum value in an array
 
+    #TODO: minimum value in a sorted and rotated array will show you array rotation
+    #TODO: get the minimum value in the array
+    #TODO: return the index as the number of times array is rotated
+
+def find_multiple_left_rotation(arr, n):
+    #This module will get an array and display how many times we rotate as output
+    #Input : arr[] = {1, 3, 5, 7, 9}
+    #Input : k1 = 1
+    #Output : 3 5 7 9 1
+    #Input : k4: 6
+    #Output: 3 5 7 9 1
+
+    #TODO: call rotatebyone
+    #TODO: Undsrstand juggling algorithm and call here
+
+
+def find_minimum_element_in_sorted_array(arr, n):
+    # This module will return the minimum element in an array
+
+    #TODO: from the library class called return minimum value
+
+def right_rotation(arr, n):
+    # This module will shift elements on the left
+
+    #TODO: Shift elements using right rotation
+    #TODO: Call the api implement during review code 
 
 
 

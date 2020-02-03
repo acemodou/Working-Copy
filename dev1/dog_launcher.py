@@ -13,7 +13,8 @@ if __name__ == "__main__":
 
 
     # for i in range(len(new_dog)):
-    #     Dog.max_dog(new_dog[i], dog1).makeNoise() #This call will fail because is a static method. we can replace cls with self to call it here
+    #     Dog.max_dog(new_dog[i], dog1).makeNoise()
+    # #This call will fail because is a static method. we can replace cls with self to call it here
 
 
 
