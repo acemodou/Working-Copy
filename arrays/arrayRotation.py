@@ -154,7 +154,7 @@ def right_rotation(arr, n):
     # This module will shift elements on the left
 
     #TODO: Shift elements using right rotation
-    #TODO: Call the api implement during review code 
+    #TODO: Call the api implement during review code
 
 
 
