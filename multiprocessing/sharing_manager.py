@@ -15,6 +15,7 @@ def print_record(records):
 
 
 if __name__ == "__main__":
+
     with multiprocessing.Manager() as manager:
         """
         Creating a dictionary in server process memory
