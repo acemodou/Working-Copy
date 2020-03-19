@@ -1,6 +1,9 @@
 from PIL import Image, ImageFilter
 import os
 
+"""
+Go to Pillow documentation to learn what you can do with the image 
+"""
 
 if __name__ == "__main__":
 
