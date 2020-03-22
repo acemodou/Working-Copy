@@ -32,13 +32,9 @@ def processed_images(img_name):
 if __name__ == "__main__":
 
     start = time.perf_counter()
-    with concurrent.futures.ProcessPoolExecutor() as executor:
+    with concurrent.futures.ThreadPoolExecutor() as executor:
         executor.map(processed_images, img_names)
 
     finish = time.perf_counter()
 
     print(f'Finished in {round(finish - start , 2)} second(s)')
-
-
-
-
