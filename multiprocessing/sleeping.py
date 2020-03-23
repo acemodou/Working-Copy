@@ -30,7 +30,6 @@ if __name__ == "__main__":
     for process in processes:
         process.join()
 
-
     """
     We use performance counter to measure the highest available resolution
     to measure a short duration 

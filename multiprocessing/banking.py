@@ -13,7 +13,7 @@ def deposit(balance):
     """
     Function to deposit from your account
     """
-    for _ in range(1000):
+    for _ in range(10000):
         balance.value = balance.value + 1
 
 

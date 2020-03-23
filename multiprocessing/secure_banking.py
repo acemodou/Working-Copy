@@ -25,7 +25,7 @@ def perform_transactions():
     """
     Initial balance in shared memory
     """
-    balance = multiprocessing.Value('i', 1000000)
+    balance = multiprocessing.Value('i', 100)
 
     """
     Create a lock object
