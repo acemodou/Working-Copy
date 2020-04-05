@@ -1,55 +1,47 @@
 
-#TODO : Store [ele 1 & ele 2 ]  in a temp variable
 
 def array_rotation(arr, d, n):
     """
-    Store ele1 and ele2 in a temp variable
-    loop through the array starting index 3
-    append ele1 and ele2 at the end of the array
-    :param arr:
-    :param d: 2
-    :param n: 7
-    :return: new_ array
+    store the fist two elements
+    check if number of values stored is equal to the amount of rotation
+    shift the array starting from the third index
+    append the stored element to the end of the new array
+    Time complexity is 0(n) and space is 0(d)
     """
 
     temp = [arr[0], arr[1]]
     if len(temp) == d:
-        new_arr = [i for i in arr[2:]]
-        print(new_arr + temp)
+        new_arr = [_ for _ in arr[2:]]
+        return new_arr + temp
     else:
-        print("The value of temp: {}, should match the value of d: {}".format(len(temp), d))
+        print(F" length of temp : {len(temp)} is not equal to the number of rotations {d}")
+        exit()
 
 
 def rotate_by_one(arr, n):
     """
-    Store the first element in a temp variable
-    shift all elements to the left
-    put temp at the last index
-    :param arr: [1,2,3,4,5,6,7]
-    :param n:  7
-    :return: shifted array complexity O(n * d) auxiliary space : O(1)
+    Store the first element
+    shift the array by one to the left
+    place the stored element to the end of the array
     """
-
     temp = arr[0]
+    for i in range(1, len(arr)-1):
+        new_arr = arr[i]
+    arr[n-1] = temp
+    return new_arr + arr
 
-    for i in range(len(arr)-1):
-        arr[i] = arr[i + 1]
-    arr[n - 1] = temp
+
 
 
 def rotate_by_d(arr, d, n):
     """
-    loop by range of d
-    call rotate_by_one d times
-    :param arr:
-    :param d:
-    :param n:
-    :return:
+    call rotate by d times.
     """
-
-    for i in range(d):
+    for _ in range(d):
         rotate_by_one(arr, n)
-    print(arr)
+
+
+
 
 
 def shift_elements_right(arr, n):
@@ -124,6 +116,7 @@ def rotate_get_maximum(arr, n):
     #TODO: multiply arr[i] * i
     #TODO: rotatebyone and multiply arr[i] * i
     #TODO: keep the maximum value as final result
+    pass
 
 
 def find_rotation_count(arr, n):
@@ -132,6 +125,7 @@ def find_rotation_count(arr, n):
     #TODO: minimum value in a sorted and rotated array will show you array rotation
     #TODO: get the minimum value in the array
     #TODO: return the index as the number of times array is rotated
+    pass
 
 def find_multiple_left_rotation(arr, n):
     #This module will get an array and display how many times we rotate as output
@@ -143,26 +137,32 @@ def find_multiple_left_rotation(arr, n):
 
     #TODO: call rotatebyone
     #TODO: Undsrstand juggling algorithm and call here
+    pass
 
 
 def find_minimum_element_in_sorted_array(arr, n):
     # This module will return the minimum element in an array
 
     #TODO: from the library class called return minimum value
+    pass
 
 def right_rotation(arr, n):
     # This module will shift elements on the left
 
     #TODO: Shift elements using right rotation
     #TODO: Call the api implement during review code
+    pass
 
 
 
 if __name__=="__main__":
-    arr = [1, 20, 2, 10]
-    #array_rotation(arr, 2, 4)
-    #rotate_by_d(arr, 3, 7)
+    arr = [1, 2, 3, 4, 5, 6, 7]
+    #print((array_rotation(arr, 2, 7)))
+    #print((rotate_by_one(arr, 7)))
+    print(rotate_by_d(arr, 2, 7))
     #shift_elements_right(arr,  5)
     #juggling_algorithm(arr, 7, 2)
-    max_sum_value(arr, len(arr))
+    #max_sum_value(arr, len(arr))
+
+
 
