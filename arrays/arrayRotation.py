@@ -18,50 +18,41 @@ def array_rotation(arr, d, n):
         exit()
 
 
-def rotate_by_one(arr, n):
+def rotate_left_by_one(arr, n):
     """
     Store the first element
     shift the array by one to the left
     place the stored element to the end of the array
     """
     temp = arr[0]
-    for i in range(1, len(arr)-1):
-        new_arr = arr[i]
-    arr[n-1] = temp
-    return new_arr + arr
+    for i in range(n-1):
+        arr[i] = arr[i+1]
+    arr[-1] = temp
 
+
+def rotate_right_by_one(arr, n):
+    """
+    Store the last element in a temp variable
+    iterate array backwards
+    shift n-2 to n-1 position, n-3 to n -2 etc
+    put temp at the 1st index
+    """
+    temp = arr[-1]
+    for i in range(n-1, 0, -1):# start from end: stop at index 0, step by -1
+        arr[i] = arr[i-1]
+    arr[0] = temp
 
 
 
 def rotate_by_d(arr, d, n):
     """
-    call rotate by d times.
+    call rotate by d times
+    time complexity O(n * d) and space complexity O(1).
     """
     for _ in range(d):
-        rotate_by_one(arr, n)
-
-
-
-
-
-def shift_elements_right(arr, n):
-    """
-    Store last element in a variable say temp
-    shift all elements one position ahead
-    Replace first element of array with x
-    :param arr: [1,2,3,4,5]
-    :param n:
-    :return: [5,1,2,3,4]
-    """
-
-    temp = arr[-1]
-    for i in range(n-1, 0, -1):# start end: stop at index 0, step by -1, -2 etc
-        arr[i] = arr[i-1]
-    arr[0] = temp
-
-    print(arr)
-
-
+        rotate_left_by_one(arr, n)
+        #rotate_right_by_one(arr, n)
+    return arr
 
 
 def gcd(n, k):
@@ -72,20 +63,7 @@ def gcd(n, k):
 
 
 def juggling_algorithm(A, n, k):
-    # O(n) space O(1)
-    num_sets = gcd(n, k)
-    for i in range(num_sets):
-        j = i
-        temp = A[i]
-        while 1:
-            d = (j + k) % n
-            if d == i:
-                break
-            A[j] = A[d]
-            j = d
-        A[j] = temp
 
-    print(A)
 
 
 def sum_array(arr, n):
@@ -104,7 +82,7 @@ def max_sum_value(arr, n):
         if max_sum > max_val:
             max_val = max_sum
             print("Array is {}, rotation is {}".format(arr, i))
-        rotate_by_one(arr, n)
+        rotate_left_by_one(arr, n)
 
     print("max_sum is {}".format(max_val))
     return max_val
@@ -157,10 +135,7 @@ def right_rotation(arr, n):
 
 if __name__=="__main__":
     arr = [1, 2, 3, 4, 5, 6, 7]
-    #print((array_rotation(arr, 2, 7)))
-    #print((rotate_by_one(arr, 7)))
-    print(rotate_by_d(arr, 2, 7))
-    #shift_elements_right(arr,  5)
+    print(rotate_by_d(arr, 3, 7))
     #juggling_algorithm(arr, 7, 2)
     #max_sum_value(arr, len(arr))
 
