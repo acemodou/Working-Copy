@@ -8,7 +8,6 @@ def array_rotation(arr, d, n):
     append the stored element to the end of the new array
     Time complexity is 0(n) and space is 0(d)
     """
-
     temp = [arr[0], arr[1]]
     if len(temp) == d:
         new_arr = [_ for _ in arr[2:]]
@@ -20,6 +19,7 @@ def array_rotation(arr, d, n):
 
 def rotate_left_by_one(arr, n):
     """
+    Cyclically rotate an array anti clock wise
     Store the first element
     shift the array by one to the left
     place the stored element to the end of the array
@@ -32,6 +32,7 @@ def rotate_left_by_one(arr, n):
 
 def rotate_right_by_one(arr, n):
     """
+    Cyclically rotate an array close wise
     Store the last element in a temp variable
     iterate array backwards
     shift n-2 to n-1 position, n-3 to n -2 etc
@@ -43,27 +44,46 @@ def rotate_right_by_one(arr, n):
     arr[0] = temp
 
 
-
 def rotate_by_d(arr, d, n):
     """
     call rotate by d times
     time complexity O(n * d) and space complexity O(1).
     """
+    if d == 0:
+        print(F"There is nothing to rotate. \n Exiting !!!")
+        exit()
     for _ in range(d):
-        rotate_left_by_one(arr, n)
-        #rotate_right_by_one(arr, n)
+        #rotate_left_by_one(arr, n)
+        rotate_right_by_one(arr, n)
     return arr
 
 
 def gcd(n, k):
     if k == 0:
         return n
-    else:
-        return gcd(k, n % k)
+    return gcd(k, n % k)
 
 
-def juggling_algorithm(A, n, k):
+def juggling_algorithm(A, n, d):
+    """
+    refer to types of algorithm
+    Time complexity is O(n) and space is O(1)
+    """
 
+    number_of_sets = gcd(n, d)
+    for i in range(number_of_sets):
+        j = i
+        temp = A[i]
+
+        while True:
+            k = (j + d) % n
+            if k == i:
+                break
+            A[j] = A[k]
+            j = k
+        A[j] = temp
+    print(A)
+    return A
 
 
 def sum_array(arr, n):
@@ -72,6 +92,7 @@ def sum_array(arr, n):
     for i in range(len(arr)):
         sum += (arr[i] * i)
     return sum
+
 
 def max_sum_value(arr, n):
 
@@ -86,6 +107,7 @@ def max_sum_value(arr, n):
 
     print("max_sum is {}".format(max_val))
     return max_val
+
 
 def rotate_get_maximum(arr, n):
     # This module takes and array and multiply each value with their index
@@ -104,6 +126,7 @@ def find_rotation_count(arr, n):
     #TODO: get the minimum value in the array
     #TODO: return the index as the number of times array is rotated
     pass
+
 
 def find_multiple_left_rotation(arr, n):
     #This module will get an array and display how many times we rotate as output
@@ -124,6 +147,7 @@ def find_minimum_element_in_sorted_array(arr, n):
     #TODO: from the library class called return minimum value
     pass
 
+
 def right_rotation(arr, n):
     # This module will shift elements on the left
 
@@ -132,11 +156,10 @@ def right_rotation(arr, n):
     pass
 
 
-
 if __name__=="__main__":
     arr = [1, 2, 3, 4, 5, 6, 7]
-    print(rotate_by_d(arr, 3, 7))
-    #juggling_algorithm(arr, 7, 2)
+    #print(rotate_by_d(arr, 0, 7))
+    #juggling_algorithm(arr, 7, 3)
     #max_sum_value(arr, len(arr))
 
 
