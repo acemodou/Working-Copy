@@ -1,4 +1,6 @@
 """This file contains only library calls """
+
+
 def median_point(arr):
     """
     We return the midpoint for even and odd numbers

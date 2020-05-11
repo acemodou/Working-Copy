@@ -88,10 +88,10 @@ def juggling_algorithm(A, n, d):
 
 def sum_array(arr, n):
 
-    sum = 0
+    max_sum = 0
     for i in range(len(arr)):
-        sum += (arr[i] * i)
-    return sum
+        max_sum += (arr[i] * i)
+    return max_sum
 
 
 def max_sum_value(arr, n):
@@ -160,7 +160,7 @@ if __name__=="__main__":
     arr = [1, 2, 3, 4, 5, 6, 7]
     #print(rotate_by_d(arr, 0, 7))
     #juggling_algorithm(arr, 7, 3)
-    #max_sum_value(arr, len(arr))
+    max_sum_value(arr, len(arr))
 
 
 
