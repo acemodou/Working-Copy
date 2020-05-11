@@ -1,3 +1,4 @@
+"""This file contains only library calls """
 def median_point(arr):
     """
     We return the midpoint for even and odd numbers
@@ -70,9 +71,9 @@ def find_pivot(arr, n, left_side, right_side):
     before_pivot = (array_mid + n - 1) % n
     after_pivot = (array_mid + 1) % n
     if arr[left_side] <= arr[right_side]:
-        return left_side, arr[left_side]
+        return left_side
     elif arr[before_pivot] >= arr[array_mid] <= arr[after_pivot]:
-        return array_mid, arr[array_mid]
+        return array_mid
     elif arr[array_mid] <= arr[right_side]:
         return find_pivot(arr, n, left_side, array_mid - 1)
     elif arr[array_mid] >= arr[left_side]:
@@ -80,6 +81,10 @@ def find_pivot(arr, n, left_side, right_side):
     else:
         print(F"The array {arr} is not rotated. \n Exiting !!!")
         exit()
+
+
+
+
 
 
 
