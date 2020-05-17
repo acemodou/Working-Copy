@@ -3,7 +3,6 @@
 class Employee:
 
     # class variables
-
     num_of_emps = 0
     raise_amount = 1.04
 
@@ -17,7 +16,7 @@ class Employee:
         Employee.num_of_emps += 1
 
     def fullname(self):
-        return '{} {}'.format(self.first, self.last)
+        return F'{self.first} {self.last}'
 
     def apply_raise(self):
         self.pay = int(self.pay * self.raise_amount)
@@ -37,17 +36,18 @@ class Employee:
             return False
         return True
 
-    #Introducing dunder methods to avoid class printing objects
-    #when you don't call them the right way.
+    # Introducing dunder methods to avoid class printing objects
+    # It give us the opportunity to decide how we want our object to be printed.
+    # when you don't call them the right way.
 
     def __repr__(self):
-        return "Employee({}, {}, {})".format(self.first, self.last, self.pay)
+        return F"Employee({self.first}, {self.last}, {self.pay})"
 
     def __str__(self):
-        return "{} - {} ".format(self.fullname(), self.pay)
+        return F"{self.fullname} - {self.pay} ."
 
     def __len__(self):
-        return len(self.fullname())
+        return len(self.fullname)
 
     def __add__(self, other):
         return self.pay + other.pay
@@ -55,7 +55,6 @@ class Employee:
     @property
     def fullname(self):
         return '{} {}'.format(self.first, self.last)
-
 
     @fullname.setter
     def fullname(self, name):
@@ -74,23 +73,26 @@ class Employee:
         self.first = None
         self.last = None
 
+
 emp_1 = Employee('Aji', 'Jaw', 50000)
 emp_2 = Employee('Aisha', 'Jaw', 750000)
 emp_3 = 'Salem-Jaw-690000'
 
-#print(Employee.fullname(emp_1))
+# print(Employee.fullname(emp_1))
 new_emp = Employee.from_string(emp_3)
-#print(new_emp.fullname())
+# print(new_emp.fullname())
 # print(new_emp.email)
 # print(Employee.num_of_emps)
-#emp_1.fullname = "Modou Jaw"
-#print(emp_1.first)
+# emp_1.fullname = "Modou Jaw"
+# print(emp_1.first)
 
+print(str(emp_1))
+# This is the same as
+print(emp_1.__str__())
 
 import datetime
 check_is_work = datetime.date(2019, 11, 19)
 
 # print(Employee.is_workday(check_is_work))
-#print(emp_1.fullname())
-#print(emp_2.__str__())
-#print(len(emp_1))
+# print(emp_1.fullname())
+# print(emp_2.__str__())
