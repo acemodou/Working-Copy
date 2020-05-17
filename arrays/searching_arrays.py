@@ -55,12 +55,35 @@ def find_minimum_index(arr):
     time complexity is 0(n)
     """
     min_element = arr[0]
+    max_element = arr[0]
     min_index = 0
-    for i in arr[1:]:
-        if arr[i] < min_element:
-            min_element = arr[i]
-            min_index = i
-    return min_element, min_index
+    max_index = 0
+    for idx, value in enumerate(arr):
+        if value < min_element:
+            min_element = value
+            min_index = idx
+        if value > max_element:
+            max_element = value
+            max_index = idx
+
+    # printing the array and position
+    print(F'The max is {max_element} at position {max_index + 1}')
+    print(F'The min is {min_element} at position {min_index + 1}')
+    return max_element, max_index + 1, min_element, min_index + 1
+
+
+def findMinimumIndex(arr):
+    """
+    Finding minimum value using library
+    """
+
+    min_pos = arr.index(min(arr))
+
+    max_pos = arr.index(max(arr))
+
+    # printing the array and position
+    print(F'The max is {arr[max_pos]} at position {max_pos + 1}')
+    print(F'The min is {arr[min_pos]} at position {min_pos + 1}')
 
 
 def find_pivot(arr, n, left_side, right_side):
@@ -85,9 +108,11 @@ def find_pivot(arr, n, left_side, right_side):
         exit()
 
 
+if __name__ == "__main__":
+    arr = [11, 15, 26, 38, 9, 10]
 
-
-
+    find_minimum_index(arr)
+    findMinimumIndex(arr)
 
 
 
