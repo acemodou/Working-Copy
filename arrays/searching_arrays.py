@@ -108,11 +108,7 @@ def find_pivot(arr, n, left_side, right_side):
         exit()
 
 
-if __name__ == "__main__":
-    arr = [11, 15, 26, 38, 9, 10]
 
-    find_minimum_index(arr)
-    findMinimumIndex(arr)
 
 
 
