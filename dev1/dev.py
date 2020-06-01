@@ -1,4 +1,12 @@
 from emp import Employee
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+LOG_FORMAT = logging.Formatter('%(levelname)s:%(asctime)s:%(message)s')
+file_handler = logging.FileHandler('dev.log', 'w')
+file_handler.setFormatter(LOG_FORMAT)
+logger.addHandler(file_handler)
 
 
 class Developer(Employee):
@@ -11,24 +19,11 @@ class Developer(Employee):
 
 
 dev_1 = Developer('Aji AMie', 'Jaw', 50000, 'python')
-# dev_2 = Developer('Aisha', 'Jaw', 750000)
-# dev_3 = 'Salem-Jaw-690000'
 emp_5 = Employee('Aji AMie', 'Jaw', 50000)
-
-
-# print(emp_1.fullname())
-# emp_4 = Employee.from_string(emp_3)
-# print(emp_4.fullname())
-#by changing the raise amount in developer. It doesn't have any impact on our Employee class
-# print(dev_1.pay)
-# dev_1.apply_raise()
-# print(dev_1.pay)
-#
-# print(emp_5.pay)
+logger.info(emp_5.pay)
 # emp_5.apply_raise()
-# print(emp_5.pay)
-#
+logger.info(emp_5.pay)
 
 import datetime
 check_is_work = datetime.date(2021, 8, 6)
-print(Developer.is_workday(check_is_work))
+logger.info(Developer.is_workday(check_is_work))

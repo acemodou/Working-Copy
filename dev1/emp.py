@@ -1,4 +1,11 @@
+import logging
 
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+LOG_FORMAT = logging.Formatter('%(levelname)s:%(asctime)s:%(message)s')
+file_handler = logging.FileHandler('emp.log', 'w')
+file_handler.setFormatter(LOG_FORMAT)
+logger.addHandler(file_handler)
 
 class Employee:
 
@@ -86,9 +93,11 @@ new_emp = Employee.from_string(emp_3)
 # emp_1.fullname = "Modou Jaw"
 # print(emp_1.first)
 
-print(str(emp_1))
+logger.info(str(emp_1))
 # This is the same as
-print(emp_1.__str__())
+logger.info(emp_1.__str__())
+
+
 
 import datetime
 check_is_work = datetime.date(2019, 11, 19)
