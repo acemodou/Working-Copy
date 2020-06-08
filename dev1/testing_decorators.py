@@ -60,35 +60,78 @@
 # human.temperature = -300
 
 
-class Celsius:
-    """ In this class we use our temperature name
-    while using @property. Also this is the most efficient
-    and recommend way ---------------------------------"""
-    def __init__(self, temperature=0):
-        self.temperature = temperature
+# class Celsius:
+#     """ In this class we use our temperature name
+#     while using @property. Also this is the most efficient
+#     and recommend way ---------------------------------"""
+#     def __init__(self, temperature=0):
+#         self.temperature = temperature
+#
+#     def to_fahrenheit(self):
+#         return (self.temperature * 1.8) + 32
+#
+#     @property
+#     def temperature(self):
+#         print("Getting value")
+#         return self._temperature
+#
+#     @temperature.setter
+#     def temperature(self, value):
+#         print("Setting value")
+#         if value < -273.5:
+#             raise ValueError("Temperature below -273.5 is not possible")
+#         self._temperature = value
+#
+#
+# # create a new object
+# human = Celsius(37)
+#
+# print(human.temperature)
+# print(human.to_fahrenheit())
+# coldest_ever = Celsius(-300)
 
-    def to_fahrenheit(self):
-        return (self.temperature * 1.8) + 32
 
-    @property
-    def temperature(self):
-        print("Getting value")
-        return self._temperature
-
-    @temperature.setter
-    def temperature(self, value):
-        print("Setting value")
-        if value < -273.5:
-            raise ValueError("Temperature below -273.5 is not possible")
-        self._temperature = value
+def division_error(func):
+    def inner(a, b):
+        if b == 0:
+            return "Division by zero is not allowed"
+        return func(a, b)
+    return inner
 
 
+@division_error
+def div(a, b):
+    """ Using Decorators to handle errors """
+    return a / b
 
 
-# create a new object
-human = Celsius(37)
+# divis = division_error(div)
+# print(divis(5, 0))
 
-print(human.temperature)
-print(human.to_fahrenheit())
-coldest_ever = Celsius(-300)
+""" we can use decorators like """
+# print(div(5, 0))
 
+
+""" Chaining decorators in python by printing stars and percents """
+def star(func):
+    def inner(*args, **kwargs):
+        print('*' * 30)
+        func(*args, **kwargs)
+        print('*' * 30)
+    return inner
+
+
+def percent(func):
+    def inner(*args, **kwargs):
+        print('%' * 30)
+        func(*args, **kwargs)
+        print('%' * 30)
+    return inner
+
+@star
+@percent
+def printer(msg):
+    print(msg)
+
+
+printer("Hello")
