@@ -90,9 +90,6 @@ def dupCountHalfCompare(data):
             
     return dupCount
 
-
-
-
 if __name__=="__main__":
     data = [20, 3, 19, 4, 14, 5, 12, 4, 3, 6, 1, 17, 8, 4, 6, 15, 1, 2, 7, 12]
     # print(f'Histogram duplicate count: {makeHistogram(data)} \n')

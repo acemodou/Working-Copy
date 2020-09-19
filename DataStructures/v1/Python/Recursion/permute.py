@@ -1,9 +1,27 @@
+def diffDepartNums(policeDept, fireDept, sanitizeDept):
+    'Department numbers should be all different'
+
+    return policeDept != fireDept and \
+           fireDept != sanitizeDept and \
+           policeDept != sanitizeDept
+
+
+def sumofDepartNumbers(police, fireDept, sanitizeDept):
+    'sum of all numbers should be equals to 12'
+    return police + fireDept + sanitizeDept == 12
+
+
+def policeNumIsEven(police):
+    'Police number must be even'
+    return police % 2 == 0
+
+
 def validateDepartmentNumbers(policeDept, fireDept, sanitizeDept):
-    return (policeDept != fireDept) and \
-           (policeDept != sanitizeDept) and \
-           (fireDept != sanitizeDept) and \
-           (policeDept + fireDept + sanitizeDept == 12) and \
-            policeDept % 2 == 0
+    'Check to make sure all numbers meet theirrequirements'
+    return diffDepartNums(policeDept, fireDept, sanitizeDept) and \
+           sumofDepartNumbers(policeDept, fireDept, sanitizeDept) and \
+            policeNumIsEven(policeDept)
+  
 
 def display_valid_dept_permutation(n):
     """
@@ -26,9 +44,7 @@ def display_valid_dept_permutation(n):
                 if validateDepartmentNumbers(policeDept, fireDept, sanitizeDept):
                     print(F'policeDept#: {policeDept} fireDept#: {fireDept} sanitizeDept#: {sanitizeDept}')
                     # Print in reverse to avoid going through the entire list.
-                    print(F'policeDept#: {sanitizeDept} fireDept#: {fireDept} sanitizeDept#: {policeDept}')
+                    print(F'sanitizeDept#: {sanitizeDept} fireDept#: {fireDept} policeDept#: {policeDept}')
             
-
-             
 if __name__ =="__main__":
     display_valid_dept_permutation(7)
