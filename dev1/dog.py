@@ -20,12 +20,13 @@ class Dog:
     def max_dog(cls, d1, d2):
         if d1.size > d2.size:
             return cls(d1)
-        else:
-            return cls(d2)
+        
+        return cls(d2)
+
+    #Compare the dogs 
     def max_dog_compare(self, otherDog):
         if self.size > otherDog.size:
-            print(self.size)
-            return self
-        print(self)
-        return otherDog
+            return self.size
+
+        return otherDog.size
 
