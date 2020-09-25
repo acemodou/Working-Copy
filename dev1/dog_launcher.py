@@ -13,7 +13,7 @@ if __name__ == "__main__":
     # print(larger_d)
 
     for i in range(len(new_dog) -1):
-      Dog.max_dog(new_dog[i], new_dog[i + 1]).makeNoise()
+      Dog.max_dog(new_dog[i], new_dog[i + 1])
      
 
     
