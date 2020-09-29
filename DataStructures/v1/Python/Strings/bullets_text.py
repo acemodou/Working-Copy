@@ -6,9 +6,10 @@ import pyperclip
 #TODO:  Add bullet's to the text after splitting it with new line 
 #TODO: Copy the text 
 
+#Store the text : Assuming we copy this to our clipboard
 text = 'Lists of nimals\nLists of aquarium life\nLists of biologists by author abbreviation\nLists of cultivars'
 
-# text = pyperclip.paste()
+text = pyperclip.paste()
 
 #Separate lines and add stars
 lines = text.split('\n')
