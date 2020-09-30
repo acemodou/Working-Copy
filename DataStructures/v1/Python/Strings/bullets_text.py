@@ -7,7 +7,7 @@ import pyperclip
 #TODO: Copy the text 
 
 #Store the text : Assuming we copy this to our clipboard
-text = 'Lists of nimals\nLists of aquarium life\nLists of biologists by author abbreviation\nLists of cultivars'
+#text = 'Lists of nimals\nLists of aquarium life\nLists of biologists by author abbreviation\nLists of cultivars'
 
 text = pyperclip.paste()
 
