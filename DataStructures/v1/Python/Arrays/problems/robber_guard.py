@@ -59,15 +59,15 @@ if __name__=="__main__":
     closeEnough = 0.2 
 
 
-    # while(abs_distance(robberX, robberY, guardX, guardY) > closeEnough \
-    #       and abs_distance(robberX, robberY, doorX, doorY) > closeEnough):
-    #       computeChanges(robberX, robberY, robberSpeed, doorX, doorY)
-    #       computeChanges(guardX, guardY, guardSpeed, robberX, robberY)
+    while(abs_distance(robberX, robberY, guardX, guardY) > closeEnough \
+          and abs_distance(robberX, robberY, doorX, doorY) > closeEnough):
+          computeChanges(robberX, robberY, robberSpeed, doorX, doorY)
+          computeChanges(guardX, guardY, guardSpeed, robberX, robberY)
 
-    #       if abs_distance(robberX, robberY, doorX, doorY) <= closeEnough:
-    #           print(f'Robber escapes.\n GuardX: {guardX} GuardY: {guardY} \n')
-    #       if abs_distance(robberX, robberY, guardX, guardY) <= closeEnough:
-    #           print(f'Guard reaches robber.\n RobberX: {robberX} RobberY: {RobberY} \n GuardX: {guardX} GuardY: {guardY} \n')
+          if abs_distance(robberX, robberY, doorX, doorY) <= closeEnough:
+              print(f'Robber escapes.\n GuardX: {guardX} GuardY: {guardY} \n')
+          if abs_distance(robberX, robberY, guardX, guardY) <= closeEnough:
+              print(f'Guard reaches robber.\n RobberX: {robberX} RobberY: {RobberY} \n GuardX: {guardX} GuardY: {guardY} \n')
 
 
 

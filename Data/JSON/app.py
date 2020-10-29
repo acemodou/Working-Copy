@@ -25,13 +25,6 @@ def menu():
         user = User(name)
         print("Welcome back! {}".format(user))
 
-        #TODO: Give them a list of options 
-        #TODO: Add a movie 
-        #TODO: See list of movies 
-        #TODO: Set a movie as watched 
-        #TODO: Delete a movie by name 
-        #TODO: See list of watched movies 
-        #TODO: Save and quit
         user_input = input("Enter 'a' to add a movie, 'p' to see the list of movies,"
                        "'w' to set a movie as watched, 'd' to delete a movie, 'l' to see the list of watched movies,"
                        ", 'f' to save or 'q' to quit: ")
