@@ -1,5 +1,6 @@
 import math
 
+# This is an infinite loop 
 
 def computeChanges(guardX, guardY, speed, targetX, targetY):
     '''
