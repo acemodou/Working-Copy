@@ -1,5 +1,6 @@
 import os
-import csv 
+import csv
+import json 
 
 _CSVDIRPATH = os.path.dirname(os.path.realpath(__file__))
 _READFILENAME = os.path.join(_CSVDIRPATH, 'earthquake.csv')
@@ -31,7 +32,6 @@ def ValidateCSV(headers):
     if csv_errors:
         raise ValueError("-E- Missng column in inventory: \n\t{}".format("\n\t".join(csv_errors)))
 
-
 def searchCSV():
     '''
     Search for CSV files 
@@ -39,7 +39,7 @@ def searchCSV():
     '''
     for files in os.listdir(_CSVDIRPATH):
         if files.endswith(".csv"):
-            csvFileObj = open(_READFILENAME)
+            csvFileObj = open(_READFILENAME, 'r')
             csvReader = csv.reader(csvFileObj)
             print('Removing header from: \n\t{}'.format(files))
     return csvReader
@@ -72,9 +72,24 @@ def writeCSV():
     for rows in csvRows:
         csvWriter.writerow(rows)
     csvFileObj.close()
-        
+
+def readTestLog():
+    data = {}
+
+    with open(os.path.join(_CSVDIRPATH, 'testlog.csv'), 'r') as csvfile:
+        csv_reader = csv.DictReader(csvfile)
+
+        y = 0
+        for rows in csv_reader:
+            data[y] = rows 
+            y = y + 1
+
+        with open(os.path.join(_CSVDIRPATH, 'newfile.json'), 'w') as jsonf:
+            jsonf.write(json.dumps(data, indent=4))
+            
+            
 if __name__ =="__main__":
-    writeCSV()
+    readTestLog()
 
    
     
