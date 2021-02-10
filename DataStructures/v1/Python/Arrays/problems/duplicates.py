@@ -15,8 +15,6 @@ def countDuplicateElements(arr):
     Count duplicates 
     '''
     j = 0
-
-
     if len(arr) == len(set(arr)):
         return f"There are no duplicates: {arr}"
     for i in range(len(arr)-2):

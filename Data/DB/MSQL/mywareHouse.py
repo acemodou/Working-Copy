@@ -1,3 +1,14 @@
-from database import Database
+""" I'll Have the Special """
 
-Database.initialise(server='MJAW-MOBL1',database='myWareHouse', user='dbo', password='')
+specials = {'Sunday'     : 'spinach',
+            'Monday'     : 'mushroom',
+            'Tuesday'    : 'pepperoni',
+            'Wednesday'  : 'veggie',
+            'Thursday'   : 'bbq chicken',
+            'Friday'     : 'sausage',
+            'Saturday'   : 'Hawaiian'}
+
+
+def order(day):
+    pizza = specials[day]
+    print('Order the {} pizza'.format(pizza))

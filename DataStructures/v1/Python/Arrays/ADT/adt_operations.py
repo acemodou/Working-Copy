@@ -1,6 +1,4 @@
-def swap(a,b):
-    a, b = b, a
-    return a, b
+
 class ADT:
     def __init__(self, size, length):
         self.size = size
@@ -9,7 +7,7 @@ class ADT:
     
     def initialize(self):
         '''
-        initializing entire array to 0
+        Filling the entire array with 0
         return the array 
         '''
         self.arr = [0 for _ in range(self.size)]
@@ -26,7 +24,7 @@ class ADT:
         Check if there is available space to add a new element
         Increment the length anytime we add a new element
         '''
-        if self.length < self.size:
+        if self.length <= self.size:
             self.arr[self.length] = x
             self.length +=1
     
@@ -36,9 +34,9 @@ class ADT:
         Check if there is available space to add a new element
         Increment the length anytime we add a new element
         '''
-        if index >=0 and index <= self.length and self.length <= self.size:
-            for i in range(self.length, index-1, -1):
-                self.arr[i+1] = self.arr[i]
+        if 0 <= index <= self.length <= self.size:
+            for i in range(self.length, index, -1):
+                self.arr[i] = self.arr[i-1]
             self.arr[index] = element
             self.length +=1
     
@@ -47,9 +45,9 @@ class ADT:
         Deleting the index in an array
         Print the value deleted in that index
         '''
-        if index >=0 and index <= self.length:
-            x = self.arr[index]
-            for i in range(index, self.length -1, 1):
+        x = self.arr[index]
+        if 0 <= index <= self.length:
+            for i in range(index, self.length, 1):
                 self.arr[i] = self.arr[i+1]
             print(f'{x} deleted!')
             self.length -=1
@@ -208,8 +206,7 @@ class ADT:
         time complexity O(n * d) and space complexity O(1).
         """
         if d == 0:
-            print(F"There is nothing to rotate. \n Exiting !!!")
-            exit()
+            return 'There is nothing to rotate. \n Exiting !!!'
         for _ in range(d):
             self.LeftShift()
         return self.arr
@@ -236,7 +233,6 @@ class ADT:
             i -=1
         self.arr[i+1] = ele
         self.length +=1
-        print(self.length)
 
     def RearrangeNegativePositive(self):
         '''
