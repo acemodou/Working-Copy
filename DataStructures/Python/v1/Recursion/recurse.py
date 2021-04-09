@@ -1,4 +1,4 @@
-def SumofNaturalNumbers(n):
+def sumofNaturalNumbers(n):
     return n * (n + 1) / 2
 
 def iterativeNaturalNumbers(n):
@@ -43,15 +43,15 @@ def Fibonacci(n):
 fibonacci_cache = {}
 def MemoizationFibonaaci(n):
     if n in fibonacci_cache:
-        yield fibonacci_cache[n]
+        return fibonacci_cache[n]
     if n <= 1:
-        yield n
+        return n
     elif n > 1:
         value = MemoizationFibonaaci(n-1) + MemoizationFibonaaci(n-2)
     
     # Cache the value and return it s
     fibonacci_cache[n] = value
-    yield value
+    return value
 
 def squareNumbers(numList):
     for i in numList:
@@ -71,9 +71,9 @@ def TOH(n, a, b, c):
 
 
 if __name__ =="__main__":
-    # for n in range(1, 5):
-    #     print(n, ":", MemoizationFibonaaci(n))
-    TOH(1, 1,2,3)
+    for n in range(1, 5):
+        print(n, ":", MemoizationFibonaaci(n))
+    # TOH(1, 1,2,3)
     
  
     

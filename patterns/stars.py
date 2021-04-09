@@ -130,8 +130,19 @@ def print_C_star(num, sign):
                 print(end=" ")
         print()
 
+def print_D_star(num, sign):
+    for row in range(num):
+        for col in range(5):
+            if (col == 0) or ((col == 4) and (row != 0 and row != 6)) or ((row == 0 or row ==6) and (col < 4)):
+                print(sign, end="")
+            else:
+                print(end=" ")
+        print()
+
+    
+
 if __name__ =="__main__":
-    print_C_star(7, "*")
+    print_D_star(7, "*")
 
    
 
