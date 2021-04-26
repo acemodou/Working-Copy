@@ -86,6 +86,8 @@ def perm1(str, low, high):
             str[i], str[low] = str[low], str[i] # backtracking 
 
 
+if __name__ == '__main__':
+    bitwiseDuplicates('finding')
 
 
 

@@ -139,10 +139,19 @@ def print_D_star(num, sign):
                 print(end=" ")
         print()
 
+def print_E_star(num, sign):
+    for row in range(num):
+        for col in range(5):
+            if row == 0 or row == 3 or row == 6 or col == 0:
+                print(sign, end='')
+            else:
+                print(end=' ')
+        print()
+
     
 
 if __name__ =="__main__":
-    print_D_star(7, "*")
+    print_E_star(7, "*")
 
    
 
