@@ -2,8 +2,7 @@
 from collections import Counter
 
 def simple_assert(a, b):
-    assert a == b, f'Assertion {a} == {b} failed'
-
+    assert a == b, f'Assertion {a} != {b}'
 
 def is_anagram(str1: str, str2: str) ->bool:
     '''
@@ -44,12 +43,10 @@ def is_anagram_3(str1: str, str2: str) -> bool:
             return False
     return True 
       
-
 simple_assert(is_anagram_3('anagram', 'nagaram'), True)
 simple_assert(is_anagram_3('rat', 'car'), False)
 simple_assert(is_anagram_3('aaaaaa', 'a'), False)
 simple_assert(is_anagram_3('a', 'aaaaaa'), False)
-
 
 def is_anagram_4(str1: str, str2: str) -> bool:
     '''
@@ -73,5 +70,4 @@ simple_assert(is_anagram_4('anagram', 'nagaram'), True)
 simple_assert(is_anagram_4('rat', 'car'), False)
 simple_assert(is_anagram_4('aaaaaa', 'a'), False)
 simple_assert(is_anagram_4('a', 'aaaaaa'), False)
-simple_assert(is_anagram_4('aacc', 'ccac'), False)
-
+simple_assert(is_anagram_4('aacc', 'ccac'), False) #This doesn't work 

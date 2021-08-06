@@ -4,13 +4,13 @@ import unittest
 class Solution:
     def isPalindrome(self, x):
         x = str(x)
-        self.j = len(x) -1 
-        self.i = 0
-        while self.j >= self.i:
-            if x[self.j] != x[self.i]:
+        self.last_index = len(x) -1 
+        self.first_index = 0
+        while self.last_index > self.first_index:
+            if x[self.last_index] != x[self.first_index]:
                 return False
-            self.j -= 1
-            self.i += 1
+            self.last_index -= 1
+            self.first_index += 1
         return True
     
     def revInteger(self, num):

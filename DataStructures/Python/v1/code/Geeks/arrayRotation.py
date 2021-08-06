@@ -41,7 +41,32 @@ class Rotation:
             self.rotate_right_by_One(arr)
         print(arr)
         return arr 
+    
+    def juggling_algorithm(self, A,  k):
+        '''
+        euclidian_gcd to divide the elements in sets
+        Time is O(n) and space is O(1)
+        '''
+        def euclidian_gcd(n, k):
+            if k == 0:
+                return n 
+            else:
+                return euclidian_gcd(k, n % k)
         
+        num_sets = euclidian_gcd(len(A), k)
+        for i in range(num_sets):
+            j = i
+            temp = A[i]
+
+            while True:
+                d = (j + k) % len(A)
+                if d == i:
+                    break
+                A[j] = A[d]
+                j = d
+            A[j]= temp
+        return A
+
 
 
 rotate_left_cases = (
@@ -65,7 +90,12 @@ class TestRotation(unittest.TestCase):
     #     sol = Rotation()
     #     for input, expected in rotate_left_cases:
     #         self.assertEqual(expected, sol.rotate_by_d([1,2,3,4,5,6,7], input), 'Did not match: %d' % input)
-    
+           
+    def test_juggling_algorithm(self):
+        sol = Rotation()
+        for input, expected in rotate_left_cases:
+            self.assertEqual(expected, sol.juggling_algorithm([1,2,3,4,5,6,7], input), 'Did not match: %d' % input)
+
     def test_rotate_right_by_d(self):
         sol = Rotation()
         for input, expected in rotate_right_cases:

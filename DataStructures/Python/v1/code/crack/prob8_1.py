@@ -1,5 +1,5 @@
 class solution:
-    memo  = {}
+    memo = {}
     def climbStairs(self, n):
         '''
         You are climbing a staircase. It takes n steps to reach the top.
@@ -29,11 +29,14 @@ class solution:
             value = self.climbStairs(n-1) + self.climbStairs(n-2)
         self.memo[n] = value
         return value 
-    
+
+    memo_2 = {}
     def allStairs(self, n, num_steps):
         '''
         Climbing for specific steps 
         '''
+        if n in self.memo_2:
+            return self.memo_2[n]
         if n < 0:
             return 0
         elif n == 0:
@@ -43,8 +46,8 @@ class solution:
             for i in num_steps:
                 if (n - i) >= 0:
                     self.total += self.allStairs(n-i, num_steps)
+            self.memo_2[n] = self.total
         return self.total
-
         
 
 # Test cases 
@@ -59,6 +62,7 @@ cases = (
 allcases = (
     (0,1),
     (1,1),
+    (2,1),
     (3,2),
     (5,5),
     (6,8),
