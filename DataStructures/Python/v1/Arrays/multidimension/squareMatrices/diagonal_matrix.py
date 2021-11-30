@@ -50,7 +50,6 @@ class AdvanceMatrix:
             print()
         print()
 
-
 def menu():
     menu_list = {'0': 'Diagonal','1': 'LowerTriangle', '10': 'Exit Application'}
     

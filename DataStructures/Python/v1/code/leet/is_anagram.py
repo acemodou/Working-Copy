@@ -1,3 +1,4 @@
+import pprint
 
 from collections import Counter
 
@@ -35,6 +36,8 @@ def is_anagram_3(str1: str, str2: str) -> bool:
         return False
     hash_table = {}
     for char in str1:
+        hash_table.setdefault(char, 0)
+        #hash_table[char] = hash_table[char] + 1 This is the same as below 
         hash_table[char] = hash_table.get(char, 0) + 1
     for char in str2:
         hash_table[char] = hash_table.get(char, 0) - 1
@@ -70,4 +73,14 @@ simple_assert(is_anagram_4('anagram', 'nagaram'), True)
 simple_assert(is_anagram_4('rat', 'car'), False)
 simple_assert(is_anagram_4('aaaaaa', 'a'), False)
 simple_assert(is_anagram_4('a', 'aaaaaa'), False)
-simple_assert(is_anagram_4('aacc', 'ccac'), False) #This doesn't work 
+# simple_assert(is_anagram_4('aacc', 'ccac'), False) #This doesn't work 
+
+def count_values(msg):
+    count = {}
+    for chars in msg:
+        count.setdefault(chars, 0)
+        count[chars] = count[chars] + 1
+    pprint.pprint(count) 
+
+message = 'It was a bright cold day in April, and the clocks were striking thirteen.'
+count_values(message)

@@ -151,7 +151,8 @@ def print_E_star(num, sign):
     
 
 if __name__ =="__main__":
-    print_E_star(7, "*")
+    pascal_stars(7, '*')
+    # print_E_star(7, "*")
 
    
 

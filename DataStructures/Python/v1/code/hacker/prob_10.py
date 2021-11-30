@@ -79,3 +79,6 @@ def binary_2(n):
 # print(binaryToDecimal(110))
 # decimal_to_bin(5)
 binary_2(6)
+
+
+

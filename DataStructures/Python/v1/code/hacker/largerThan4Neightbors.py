@@ -26,6 +26,6 @@ def largestCat(cats):
         previous_largest = max_cat
 
 
-cats = [10]
+cats = [10,20,-1,89]
 largestCat(cats)
 

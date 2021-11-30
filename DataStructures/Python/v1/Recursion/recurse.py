@@ -23,7 +23,7 @@ def TaylorSeries(x, n):
     r = TaylorSeries(x, n-1)
     TaylorSeries.p *= x 
     TaylorSeries.f *= n
-    return r + TaylorSeries.p/TaylorSeries.f
+    return r + (TaylorSeries.p // TaylorSeries.f)
 
 def Factorial(n):
     if n == 0:
@@ -34,6 +34,14 @@ def Power(m, n):
     if n == 0:
         return 1
     return Power(m, n-1) * m
+
+def powers(m, n):
+    if n == 0:
+        return 1 
+    if n % 2 == 0:
+        return powers(m * m, n//2)
+    else:
+        return m * powers(m*m , (n-1) //2)
 
 def Fibonacci(n):
     if n <= 1:
@@ -69,11 +77,20 @@ def TOH(n, a, b, c):
         print(f'Move disk from {a} to {c}')
         TOH(n-1, b, a, c)
 
+def recurse_mult(x, y):
+    ''' Multiply without using the * operator '''
+    if x == 0 or y == 0:
+        return 0
+    elif y == 1:
+        return x
+    else:
+        return recurse_mult(x, y-1) + x 
 
 if __name__ =="__main__":
-    for n in range(1, 5):
-        print(n, ":", MemoizationFibonaaci(n))
-    # TOH(1, 1,2,3)
+    # for n in range(1, 5):
+    #     print(n, ":", MemoizationFibonaaci(n))
+    # print(TaylorSeries(2,4))
+    print(recurse_mult(4, 5))
     
  
     

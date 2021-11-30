@@ -263,10 +263,10 @@ class ADT:
             else:
                 merged_arr.append(arr2[j])
                 j +=1
-        for _ in arr1[i:]:
+        for _ in arr1[i:]: # copy left over if there is any
             merged_arr.append(arr1[i])
         for _ in arr2[j:]:
-            merged_arr.append(arr2[j])
+            merged_arr.append(arr2[j]) # copy left over if there is any
 
         return merged_arr
 
