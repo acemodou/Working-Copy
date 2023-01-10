@@ -3,8 +3,8 @@ name: Auto Merge Owner PR
 on: push 
 
 jobs:
-  setup:
-    runs-on: self-hosted
+ setup:
+  runs-on: self-hosted
     steps:
     # Clean up first...this is an utter bodge for self-hosted runners: https://github.community/t/how-to-properly-clean-up-self-hosted-runners/128909/6
     - name: Clean runner directory
