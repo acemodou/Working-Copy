@@ -1,0 +1,7 @@
+{
+    "displayAddress" : "jedai@intel.com",
+
+    "smtp_authless_relay_server" : "smtp.intel.com",
+
+    "smtp_auth_relay_server" : "smtpauth.intel.com:587"
+}
