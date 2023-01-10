@@ -1,0 +1,20 @@
+name: Auto Merge Owner PR 
+
+on: push 
+
+jobs:
+  unittest:
+    runs-on: self-hosted
+    steps:
+    # Clean up first...this is an utter bodge for self-hosted runners: https://github.community/t/how-to-properly-clean-up-self-hosted-runners/128909/6
+    -name: Clean runner directory
+    run: |
+      echo "Cleaning up run"
+      rm -rf "${{ github.workspace }}"
+      mkdir "${{ github.workspace }}"
+    -uses:  actions/checkout@v2
+
+    -name: Run unittest 
+    run:  |
+      cd DataStructures/v1/Heaps
+      python test_min_heap_construction.py
