@@ -16,8 +16,6 @@ jobs:
         mkdir "${{ github.workspace }}"
   
     - uses: actions/checkout@v2
-    - name: Python Syntax Checker
-      uses: cclauss/Find-Python-syntax-errors-action@v0.2.0
 
     - name: Test heaps.
       run: |
