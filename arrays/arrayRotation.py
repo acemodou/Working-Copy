@@ -103,4 +103,3 @@ if __name__=="__main__":
     #rotate_by_d(arr, 3, 7)
     shift_elements_right(arr,  5)
     #juggling_algorithm(arr, 7, 2)
-

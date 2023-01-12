@@ -117,5 +117,3 @@ if __name__ == "__main__":
     n = len(arr2)
     #print("Output:  {}".format(sumCirularSortedArray(arr2, 5, 45)))
     print("Output:  {}".format(pairInSortedRotatedArray(arr2, n, 16)))
-
-

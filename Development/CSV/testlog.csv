@@ -1,0 +1,10 @@
+CI,16151537,testnvmeResetWarmReset,Pass,f223-204-10-h1,Standard Configuration,Windows,DrivePrepIntegrityTest_log.html.zip :: You can find the log here: Y:\fast-logs\2020WW46.5\f223-204-10-h1\DrivePrepIntegrityTest_log.html_20201113-110326.zip
+CI,16151537,testnvmeResetWarmReset,Pass,f223-204-10-h1,Standard Configuration,Windows,DrivePrepIntegrityTest.runner.log :: You can find the log here: Y:\fast-logs\2020WW46.5\f223-204-10-h1\DrivePrepIntegrityTest.runner_20201113-110326.log
+CI,16151537,testnvmeResetWarmReset,Pass,f223-204-10-h1,Standard Configuration,Windows,DrivePrepIntegrityTest.full_suite.log :: You can find the log here: Y:\fast-logs\2020WW46.5\f223-204-10-h1\DrivePrepIntegrityTest.full_suite_20201113-110326.log
+CI,16151537,testnvmeResetWarmReset,Pass,f223-204-10-h1,Standard Configuration,Windows,find_the_zipped_logs.log :: You can find the log here: Y:\fast-logs\2020WW46.5\f223-204-10-h1\find_the_zipped_logs_20201113-110327.log
+CI,16151537,testnvmeResetWarmReset,Pass,f223-204-10-h1,Standard Configuration,Windows,TempLogDir :: C:\Users\remlab\AppData\Roaming\ctf\temp\qkxygr
+CI,16151537,testnvmeResetWarmReset,Pass,f223-204-10-h1,Standard Configuration,Windows,LocalLogDir :: C:\Users\remlab\AppData\Roaming\ctf\local_ctf_log_dir\DrivePrepIntegrityTest_testNvmeResetWarmReset_logs\007_2020.11.13.10.57.44
+CI,16151537,testnvmeResetWarmReset,Pass,f223-204-10-h1,Standard Configuration,Windows,RemoteLogDir :: Y:\fast-logs\f223-204-10-h1\DrivePrepIntegrityTest_testNvmeResetWarmReset_logs\007_2020.11.13.10.57.44
+CI,16151537,testnvmeResetWarmReset,Pass,f223-204-10-h1,Standard Configuration,Windows,Total:1 P:1 F:0 S:0
+CI,16151538,testWfwCfwLlfWarmReset,Pass,f223-204-10-h1,Standard Configuration,Windows,DrivePrepIntegrityTest_log.html.zip :: You can find the log here: Y:\fast-logs\2020WW46.5\f223-204-10-h1\DrivePrepIntegrityTest_log.html_20201113-111236.zip
+CI,16151538,testWfwCfwLlfWarmReset,Pass,f223-204-10-h1,Standard Configuration,Windows,DrivePrepIntegrityTest.runner.log :: You can find the log here: Y:\fast-logs\2020WW46.5\f223-204-10-h1\DrivePrepIntegrityTest.runner_20201113-111236.log
