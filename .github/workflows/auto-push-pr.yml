@@ -16,7 +16,6 @@ jobs:
         mkdir "${{ github.workspace }}"
   
     - uses: actions/checkout@v2
-    - name: Python Syntax Checker
 
     - name: Test heaps.
       run: |
