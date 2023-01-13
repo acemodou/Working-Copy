@@ -1,0 +1,28 @@
+name: Unit Testing
+
+on:
+  pull_request:
+    types: [opened, reopend]
+
+jobs:
+  lint:
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v4.5.0
+      with:
+        python-version: 3.8
+    - name: Set up Python environment
+    - uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
+    - name: flake8 Lint
+      uses: py-actions/flake8@v2
+      
+        
+    
+        
+      
+
+  
