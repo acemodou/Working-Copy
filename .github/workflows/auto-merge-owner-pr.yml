@@ -1,20 +1,25 @@
-name: flake8 Lint
+name: Unit Testing
 
-on: [push, pull_request]
+on: push
 
 jobs:
-  flake8-lint:
-    runs-on: ubuntu-latest
-    name: Lint
+  build:
+    runs-on: self-hosted
     steps:
-      - name: Check out source repository
-        uses: actions/checkout@v3
-      - name: Set up Python environment
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
-      - name: flake8 Lint
-        uses: py-actions/flake8@v2
+    # Clean up first...this is an utter bodge for self-hosted runners: https://github.community/t/how-to-properly-clean-up-self-hosted-runners/128909/6
+    - name: Clean runner directory
+      run: |
+        echo "Cleaning up run"
+        rm -rf "${{ github.workspace }}"
+        mkdir "${{ github.workspace }}"
+  
+    - uses: actions/checkout@v2
+
+    - name: Test heaps.
+      run: |
+        cd DataStructures/v1/Heaps
+        python test_min_heap_construction.py
+
       
         
     
