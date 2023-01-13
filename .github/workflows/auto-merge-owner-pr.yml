@@ -1,8 +1,6 @@
 name: Unit Testing
 
-on:
-  pull_request:
-    types: [opened, reopend]
+on push
 
 jobs:
   flake8-lint:
