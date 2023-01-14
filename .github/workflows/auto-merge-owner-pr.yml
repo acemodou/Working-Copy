@@ -1,34 +1,22 @@
-name: Unit Testing
+name: Auto-Merge
 
-on: push
+on:
+  push
+
 
 jobs:
-  build:
-    runs-on: self-hosted
-    steps:
-    # Clean up first...this is an utter bodge for self-hosted runners: https://github.community/t/how-to-properly-clean-up-self-hosted-runners/128909/6
-    - name: Clean runner directory
-      run: |
-        echo "Cleaning up run"
-        rm -rf "${{ github.workspace }}"
-        mkdir "${{ github.workspace }}"
-  
-    - uses: actions/checkout@v3
-
   merge:
-    if: github.actor == 'acemodou'
     runs-on: self-hosted
+
     steps:
-    - uses: alteryx/auto-approve-pr@v1
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Auto-Merge
+      id: automerge
+      uses: peter-evans/auto-merge@v3
       with:
-        repository: ${{ github.repository }}
-      
-
-
-    
-    
-    
-        
-      
-
-  
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: "Automatically merging"
+        delete-branch: true
+        labels: "merge me"
