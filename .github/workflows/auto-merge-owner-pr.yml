@@ -14,7 +14,8 @@ jobs:
 
     - name: Auto-Merge
       id: automerge
-      uses: peter-evans/auto-merge@v3
+      if: github.actor == 'acemodou'
+      uses: hmarr/auto-approve-action@v2.0.0
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         commit-message: "Automatically merging"
