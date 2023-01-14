@@ -1,7 +1,8 @@
 name: Auto-Merge
 
 on:
-  push
+  pull_request:
+    types: [opened, synchronize]
 
 
 jobs:
