@@ -19,15 +19,11 @@ jobs:
       run: |
         cd DataStructures/v1/Heaps
         python test_min_heap_construction.py
+        if: github.actor == 'acemodou'
+         - name: Automatic Approve
+         - uses: mheap/automatic-approve-action@v1
      
-  merge:
-    if: github.actor == 'acemodou'
-    needs: [build]
-    runs-on: self-hosted
-    steps:
-    - uses: actions/checkout@v2
-    - uses: hmarr/auto-approve-action@v3.1.0
- 
+
 
     
     
