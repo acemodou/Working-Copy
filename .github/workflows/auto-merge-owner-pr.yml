@@ -4,19 +4,17 @@ on:
   pull_request:
     types: [opened, synchronize]
 
-
 jobs:
   merge:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
 
     - name: Auto-Merge
       id: automerge
-      if: github.actor == 'acemodou'
-      uses: hmarr/auto-approve-action@v2.0.0
+      uses: peter-evans/auto-merge@v3
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         commit-message: "Automatically merging"
