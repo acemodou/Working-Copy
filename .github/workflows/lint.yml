@@ -1,0 +1,19 @@
+name: Pipeline
+
+on: [push]
+env:
+  APPLICATION_NAME: app2
+jobs:
+  lint:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup Python environment
+      uses: actions/setup-python@v1.1.1
+    - name: Install requirements
+      run: pip install --quiet --requirement requirements.txt
+    - name: Lint code
+      run: |
+        flake8 --ignore=E501,E231 *.py
+        pylint --disable=C0301 --disable=C0326 *.py
+   
