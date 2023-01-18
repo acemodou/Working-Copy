@@ -15,7 +15,7 @@ jobs:
 
     - name: Auto-Merge
       id: automerge
-      if: github.actor == 'acemodou'
+      if: github.actor == 'mjaw'
       uses: hmarr/auto-approve-action@v2.0.0
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
