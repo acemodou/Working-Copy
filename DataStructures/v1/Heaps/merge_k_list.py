@@ -56,5 +56,6 @@ class TestMergeKLists(unittest.TestCase):
         expected = ListNode(1, ListNode(4, ListNode(5)))
         self.assertEqual(mergeKLists([list1]), expected)
 
+
 if __name__ == '__main__':
     unittest.main()
