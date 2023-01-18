@@ -12,6 +12,7 @@ def simple_assert(a:int, b:int):
 #             return True 
 #     return False 
 
+# Time is O(n) and space is O(1)
 def isValidSubsequence(array, sequence):
     seqIdx, arrIdx = 0, 0
     while arrIdx < len(array) and seqIdx < len(sequence):
