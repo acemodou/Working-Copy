@@ -1,22 +1,15 @@
-name: Auto-Merge
+name: Auto approve PRs by dependabot
 
-on:
-  pull_request:
-    types: [opened, synchronize]
+# Trigger the workflow on pull request
+on: pull_request_target
 
 jobs:
-  merge:
+  autoapprove:
+    name: Auto-Approve a PR by dependabot
     runs-on: self-hosted
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Auto-Merge
-      id: automerge
-      uses: peter-evans/auto-merge@v3
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        commit-message: "Automatically merging"
-        delete-branch: true
-        labels: "merge me"
+      - name: Auto approve
+        uses: cognitedata/auto-approve-dependabot-action@v3.0.1
+        if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
