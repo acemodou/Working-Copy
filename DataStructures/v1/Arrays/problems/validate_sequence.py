@@ -1,7 +1,7 @@
 def simple_assert(a:int, b:int):
     assert a == b, f'{a}!{b}'
 
-# Time is O(n) and space is O(1)
+# Time is O(n) and space is O(1).
 # def isValidSubsequence(array, sequence):
 #     
 #     j = 0 
