@@ -24,4 +24,5 @@ def isValidSubsequence(array, sequence):
 
 array = [5, 1, 22, 25, 6, -1, 8, 10]
 sequence = [1, 6, -1, 10]
+
 simple_assert(isValidSubsequence(array, sequence), True)
