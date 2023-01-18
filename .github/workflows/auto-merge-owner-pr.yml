@@ -1,17 +1,41 @@
-name: Auto approve PRs by dependabot
+name: Auto Merge Owner
 
-# Trigger the workflow on pull request
 on:
   pull_request:
-    types: [opened, synchronize]
+    types: [opened, reopened]
 
 jobs:
-  autoapprove:
-    name: Auto-Approve a PR by dependabot
+  build:
+    runs-on: self-hosted
+
+    steps:
+    # Clean up first...this is an utter bodge for self-hosted runners: https://github.community/t/how-to-properly-clean-up-self-hosted-runners/128909/6
+    - name: Clean runner directory
+      run: |
+        echo "Cleaning up run"
+        rm -rf "${{ github.workspace }}"
+        mkdir "${{ github.workspace }}"
+  
+    - uses: actions/checkout@v2
+
+    - name: Test heaps.
+      run: |
+        cd DataStructures/v1/Heaps
+        python test_min_heap_construction.py
+
+  merge:
+    if: github.actor == 'automate6500' || github.actor == 'octocat'
     runs-on: self-hosted
     steps:
-      - name: Auto approve
-        uses: cognitedata/auto-approve-dependabot-action@v3.0.1
-        if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - uses: actions/checkout@v1
+    
+    - uses: hmarr/auto-approve-action@v2.0.0
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Pull Request Merginator
+      uses: managedkaos/merge-pull-request@v1.2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
