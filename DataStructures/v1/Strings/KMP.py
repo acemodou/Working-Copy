@@ -3,28 +3,41 @@ def KMP(text : str, pat: str):
     # Preprocess the pattern (calculate lps[] array)
     M = len(pat)
     lps = [0] * M 
+    i, j = 0, 0
 
     computeLPSArray(pat, M, lps)
 
-def computeLPSArray(pat : str, M : int, lps :List[int]):
-    lps[0] = 0 # lps[0] is always 0
-    len = 0 # length of the previous longest prefix suffix
-    i = 1 
+    while i < len(text):
+        if text[i] == pat[j]:
+            i += 1 
+            j += 1
+        
+        if j == len(pat):
+            return i - j 
+        
+        elif i < len(text) and pat[j] != text[i]:
+            if j != 0:
+                j = lps[j-1]
+            else:
+                i += 1
 
+def computeLPSArray(pat, M, lps):
+    lps[0] = 0
+    i = 1
+    j = 0
     while i < M:
-        if pat[i] == pat[len]:
-            len += 1
-            lps[i] = len 
+        if pat[j] == pat[i]:
+            j += 1
+            lps[i] = j
             i += 1
+        
         else:
-            # This is tricky. Consider the example.
-	        # AAACAAAA and i = 7. The idea is similar
-            # to search step.
-            if len != 0:
-                len = lps[len -1]
+            if j != 0:
+                j = lps[j-1]
+            
             else:
                 lps[i] = 0
                 i += 1
-            
+    return lps 
 
-        
+assert KMP("ababcabcabababd", "ababd") == 10
