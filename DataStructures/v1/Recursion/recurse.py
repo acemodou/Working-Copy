@@ -84,13 +84,31 @@ def recurse_mult(x, y):
     elif y == 1:
         return x
     else:
-        return recurse_mult(x, y-1) + x 
+        return recurse_mult(x, y-1) + x
+
+def perm(S):
+    res = [""] * len(S)
+    A = [0] * len(S)
+    backtrack(S, 0, res, A)
+
+def backtrack(S, k, res, A):
+    if k == len(S):
+        print(''.join(res))
+    for i in range(len(S)):
+        if A[i] == 0:
+            res[k] = S[i]
+            A[i] = 1
+            backtrack(S, k+1, res, A)
+            A[i] = 0
+
+
 
 if __name__ =="__main__":
     # for n in range(1, 5):
     #     print(n, ":", MemoizationFibonaaci(n))
     # print(TaylorSeries(2,4))
-    print(recurse_mult(4, 5))
-    
+    # print(recurse_mult(4, 5))
+    S = "abc"
+    perm(S)
  
     
