@@ -4,10 +4,7 @@ from typing import Any
 
 def simple_assert(a : Any, b: Any) -> None:
     assert a == b, f'{a != b}'
-
-
-
-
+    
 def binarySearch(array : List[int], target : int) -> int:
     low, high = 0,  len(array) -1
  

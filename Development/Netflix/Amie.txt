@@ -1,3 +1,0 @@
-Amie
-Black list,action,False 
-Game of thrones,action,False 
