@@ -126,4 +126,5 @@ class Tree:
 program = Tree()
 program.create_tree()
 # print(program.count_nodes(program.root))
-print(program.tree_height(program.root))
+# print(program.tree_height(program.root))
+program.pre_order(program.root)

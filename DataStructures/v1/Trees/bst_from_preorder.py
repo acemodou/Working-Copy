@@ -1,58 +1,53 @@
-from stack_adt_linkedlist import STACKLIST
-
-class Node:
-    def __init__(self, value):
-        self.lchild = None 
+# This is an input class. Do not edit.
+class BST:
+    def __init__(self, value, left=None, right=None):
         self.value = value
-        self.rchild = None 
+        self.left = left
+        self.right = right
+
+# O(n^2) time & O(h) space
+# def reconstructBst(preOrderTraversalValues):
+#     # Write your code here.
+#     if len(preOrderTraversalValues) == 0:
+#         return None 
+#     currentValue = preOrderTraversalValues[0]
+#     rightSubttreeIdx  = len(preOrderTraversalValues)
+
+#     for idx in range(1, len(preOrderTraversalValues)):
+#         value = preOrderTraversalValues[idx]
+
+#         if value >= currentValue:
+#             rightSubttreeIdx = idx 
+#             break
+#     leftSubtree = reconstructBst(preOrderTraversalValues[1: rightSubttreeIdx])
+#     rightSubtree = reconstructBst(preOrderTraversalValues[rightSubtree:])
+#     return BST(currentValue, leftSubtree, rightSubtree)
+
+class BST:
+    def __init__(self, value, left=None, right=None):
+        self.value = value
+        self.left = left
+        self.right = right
 
 
-def create_from_preorder(pre):
-    # Create initial node 
-    i = 0
-    root = Node(pre[i])
-    i += 1
-    root.lchild = None 
-    root.rchild = None 
+class TreeInfo:
+    def __init__(self, rootIdx):
+        self.rootIdx = rootIdx
 
-    ptr = root
-    st = STACKLIST()
-
-    while i < len(pre):
-        # left child case 
-        if pre[i] < ptr.value:
-            t = Node(pre[i])
-            i += 1
-            t.lchild = None 
-            t.rchild = None 
-            ptr.lchild = t 
-            st.push(ptr)
-            ptr = t
-        else:
-            # We don't push address when we create right child 
-            # This is just a h
-            # if pre[i] > ptr.value and pre[i] < st.top.value or st.isEmpty() and pre[i] < float("inf"):
-            # stk_value = st.stackTop()
-            # val = int(stk_value.value)
-          
-
-            if pre[i] > ptr.value and not st.isEmpty() and pre[i] < st.stackTop().value:
-                t = Node(pre[i])
-                i +=1
-                t.lchild = None 
-                t.rchild = None 
-                ptr.rchild = t
-                ptr = t
-            elif st.isEmpty() and  pre[i] > ptr.value:
-                t = Node(pre[i])
-                i +=1
-                t.lchild = None 
-                t.rchild = None 
-                ptr.rchild = t
-                ptr = t
-            else:
-                ptr = st.stackTop()
-                st.pop()
-                
-pre = [30,20,10,15,25,40,50,45]
-create_from_preorder(pre)
+def reconstructBst(preOrderTraversalValues):
+    # Write your code here.
+    treeInfo = TreeInfo(0)
+    return reconstructBstFromRange(float("-inf"), float("inf"),preOrderTraversalValues,treeInfo)
+    
+def reconstructBstFromRange(lower, upper,preOrderTraversalValues,currentSubTreeInfo):
+    if currentSubTreeInfo.rootIdx == len(preOrderTraversalValues):
+        return None 
+    rootValue = preOrderTraversalValues[currentSubTreeInfo.rootIdx]
+    if rootValue < lower or rootValue > upper:
+        return None 
+    
+    currentSubTreeInfo.rootIdx += 1
+    leftSubtree = reconstructBstFromRange(lower, rootValue, preOrderTraversalValues, currentSubTreeInfo)
+    rightSubtree = reconstructBstFromRange(rootValue, upper, preOrderTraversalValues, currentSubTreeInfo)
+    return BST(rootValue, leftSubtree, rightSubtree)
+    
