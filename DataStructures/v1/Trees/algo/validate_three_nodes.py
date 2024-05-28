@@ -18,16 +18,23 @@ def validateThreeNodes(nodeOne, nodeTwo, nodeThree):
     
     return False 
 
-def isDescendant(node, target):
-    if node is None:
-        return False 
+# def isDescendant(node, target):
+#     if node is None:
+#         return False 
     
-    if node is target:
-        return True 
-    return(
-        isDescendant(node.left, target) if target.value < node.value else 
-        isDescendant(node.right, target)
-    )
+#     if node is target:
+#         return True 
+#     return(
+#         isDescendant(node.left, target) if target.value < node.value else 
+#         isDescendant(node.right, target)
+# )
+
+def isDescendant(node, target):
+    while node is not None and node is not target:
+        node = node.left if target.value < node.value else node.right
+    
+    return node is target
+    
 
 root = BST(5)
 root.left = BST(2)
