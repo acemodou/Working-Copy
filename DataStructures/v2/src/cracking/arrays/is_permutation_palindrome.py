@@ -32,6 +32,7 @@ def simple_assert(a, b):
 #     return odd_count <= 1
 
 def is_permutation_palindrome(s):
+    # This approach just count the number of bits set to 1
     s = [c.lower() for c in s if c.isalpha()]
 
     bit_set = 0
