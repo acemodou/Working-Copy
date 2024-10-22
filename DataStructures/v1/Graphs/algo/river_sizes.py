@@ -1,7 +1,8 @@
 # and methods to the class.
 def simple_assert(a, b):
     assert a == b, f"{a}!{b}"
-    
+
+# time O(w.h) | space O(w.h) 
 def riverSizes(matrix):
     # Write your code here.
     sizes = []
