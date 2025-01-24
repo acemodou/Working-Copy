@@ -18,6 +18,7 @@ def search_words_in_docs(words):
             if word in content:
                 docs.add(doc_id)
         words_in_set[word] = docs 
+        print(words_in_set)
     return words_in_set
 
 def find_words_in_docs(words):
